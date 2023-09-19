@@ -18,13 +18,16 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1 className="text-center text-bold text-3xl font-semibold m-4 mb-40">
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="text-center text-bold text-3xl font-semibold m-4 mb-24">
         Event Management System
       </h1>
+      <h3 className="text-center text-semibold text-2xl font-semibold m-4 underline">
+        Login
+      </h3>
       <form
         onSubmit={submitForm}
-        className="flex flex-col gap-10 justify-center items-center"
+        className="flex flex-col gap-10 justify-center items-center border-2 border-black w-[50vw] rounded-2xl p-10"
       >
         <div className="flex gap-10 justify-center items-center">
           <label htmlFor="userRole" className="text-2xl font-semibold">
@@ -44,7 +47,7 @@ function Login() {
         </div>
         <div className="flex gap-10 justify-center items-center">
           <label htmlFor="id" className="text-2xl font-semibold">
-            ID
+            Unique ID
           </label>
           <input
             type="text"
