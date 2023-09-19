@@ -42,6 +42,18 @@ function SignUp() {
           />
         </div>
         <div className="flex gap-10 justify-center items-center">
+          <label htmlFor="email" className="text-2xl font-semibold">
+            Email
+          </label>
+          <input
+            type="email"
+            placeholder="Enter your Email"
+            onChange={handleFieldChange}
+            value={formData.id}
+            className="w-[20vw] text-lg border-2 border-black rounded-lg  px-6 py-4"
+          />
+        </div>
+        <div className="flex gap-10 justify-center items-center">
           <label htmlFor="password" className="text-2xl font-semibold">
             Password
           </label>
