@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Login() {
   const [formData, setFormData] = useState({
-    role: "",
+    role: "user",
     id: "",
     password: "",
   });
@@ -10,11 +10,6 @@ function Login() {
   const submitForm = (e) => {
     e.preventDefault();
     console.log(formData.role, formData.id, formData.password);
-  };
-
-  const handleFieldChange = (e) => {
-    const [name, value] = e.target;
-    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -34,10 +29,12 @@ function Login() {
             Select your Role:
           </label>
           <select
-            name="userRole"
+            name="role"
             id="userRole"
-            onChange={handleFieldChange}
             value={formData.role}
+            onChange={(e) => {
+              setFormData({ ...formData, role: e.target.value });
+            }}
             className="px-4 py-2 border-black border-2 rounded-lg"
           >
             <option value="user">User</option>
@@ -52,8 +49,11 @@ function Login() {
           <input
             type="text"
             placeholder="Enter your ID"
-            onChange={handleFieldChange}
+            name="id"
             value={formData.id}
+            onChange={(e) => {
+              setFormData({ ...formData, id: e.target.value });
+            }}
             className="w-[20vw] text-lg border-2 border-black rounded-lg  px-6 py-4"
           />
         </div>
@@ -62,10 +62,13 @@ function Login() {
             Password
           </label>
           <input
-            type="text"
+            type="password"
             placeholder="Enter your Password"
-            onChange={handleFieldChange}
+            name="password"
             value={formData.password}
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+            }}
             className="w-[20vw] text-lg border-2 border-black rounded-lg px-6 py-4"
           />
         </div>
@@ -76,7 +79,7 @@ function Login() {
           Login
         </button>
         <p className="text-lg font-semibold">
-          Don't Have a Account? Register{" "}
+          Dont Have a Account? Register{" "}
           <a href="/register" className="text-blue-600 underline">
             here
           </a>

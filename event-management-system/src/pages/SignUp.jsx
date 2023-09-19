@@ -2,19 +2,15 @@ import { useState } from "react";
 
 function SignUp() {
   const [formData, setFormData] = useState({
-    role: "",
+    role: "user",
+    email: "",
     id: "",
     password: "",
   });
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(formData.role, formData.id, formData.password);
-  };
-
-  const handleFieldChange = (e) => {
-    const [name, value] = e.target;
-    setFormData({ ...formData, [name]: value });
+    console.log(formData.role, formData.id, formData.password, formData.email);
   };
 
   return (
@@ -36,7 +32,9 @@ function SignUp() {
           <input
             type="text"
             placeholder="Enter your ID"
-            onChange={handleFieldChange}
+            onChange={(e) => {
+              setFormData({ ...formData, id: e.target.value });
+            }}
             value={formData.id}
             className="w-[20vw] text-lg border-2 border-black rounded-lg  px-6 py-4"
           />
@@ -48,8 +46,10 @@ function SignUp() {
           <input
             type="email"
             placeholder="Enter your Email"
-            onChange={handleFieldChange}
-            value={formData.id}
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value });
+            }}
+            value={formData.email}
             className="w-[20vw] text-lg border-2 border-black rounded-lg  px-6 py-4"
           />
         </div>
@@ -58,9 +58,11 @@ function SignUp() {
             Password
           </label>
           <input
-            type="text"
+            type="password"
             placeholder="Enter your Password"
-            onChange={handleFieldChange}
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+            }}
             value={formData.password}
             className="w-[20vw] text-lg border-2 border-black rounded-lg px-6 py-4"
           />
@@ -72,7 +74,9 @@ function SignUp() {
           <select
             name="userRole"
             id="userRole"
-            onChange={handleFieldChange}
+            onChange={(e) => {
+              setFormData({ ...formData, role: e.target.value });
+            }}
             value={formData.role}
             className="px-4 py-2 border-black border-2 rounded-lg"
           >
