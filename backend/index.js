@@ -3,20 +3,10 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import userRoutes from "./routes/User.js";
+import "dotenv/config.js"
 
 const app = express();
-const PORT = 8080;
-const DBURL = "mongodb://127.0.0.1:27017/test";
-
-// Database Connection
-mongoose
-  .connect(DBURL)
-  .then((res) => {
-    console.log("Database Connected");
-  })
-  .catch((err) => {
-    console.log("Database Error", err);
-  });
+const PORT = process.env.PORT || 3000;
 
 // MiddleWares
 app.use(cors());
