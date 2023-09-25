@@ -1,9 +1,8 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
 import userRoutes from "./routes/User.js";
-import "dotenv/config.js"
+import "dotenv/config.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
