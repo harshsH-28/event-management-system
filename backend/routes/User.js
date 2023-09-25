@@ -1,5 +1,5 @@
 import express from "express";
-import { login, signup, logout } from "../controllers/AuthController.js";
+import { login, signup, logout } from "../controllers/authController.js";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import createError from "http-errors";
